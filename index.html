@@ -1,0 +1,167 @@
+<html>
+    <header>
+        <title>
+        </title>
+        <script src="form.js"></script>
+        <link rel="stylesheet" href="styles.css">
+    </header>
+    <body onload="startform()">
+        <form class="form" name="order">
+            <div class="header">
+                <h1>Order Form</h1>
+                <div>
+                    <label for="dateInput">Date:</label>
+                    <input name="formdate" type="text">
+                </div>
+            </div>
+            <fieldset>
+                <legend>Select a Product</legend>
+                <div class="productSelect">
+                    <label class="coloredLabel" for="product">Product: </label>
+                    <select id="product" name="product" onchange="orderPrice()">
+                        <option value="0">Products from GPS-ware</option>
+                        <option value="19.95">GoMap 1.0 ($19.95)</option>
+                        <option value="29.95">Drive Planner 2.0 ($29.95)</option>
+                        <option value="29.95">Hiker 1.0 ($29.95)</option>
+                        <option value="149.50">G-Receiver I ($149.50)</option>
+                        <option value="199.50">G-Receiver II ($199.50)</option>
+                        <option value="249.50">G-Receiver III ($249.50)</option>
+                    </select>
+                    <select id="qty" name="qty" onchange="orderPrice()">
+                        <option>Quantity: </option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <input class="productInput" name="sub1" type="text">
+                    <label class="coloredLabel" name="tax">Tax (5%): </label>
+                    <input class="productInput" name="sub2">
+                    <label class="coloredLabel" name="shipping">Shipping: </label>
+                    <div class="shippingButtons">
+                        <input id="standard" name="shipping" onclick="shippingPrice1()"   type="radio">
+                        <label for="standard" onclick="shippingPrice()">Standard (3-5 days) $7.95</label>
+                        <br>
+                        <input id="express" name="shipping" onclick="shippingPrice2()"type="radio">
+                        <label for="express" onclick="shippingPrice()">Express (2 days) $9.95</label>
+                        <br>
+                        <input id="nextDay" name="shipping" onclick="shippingPrice3()" type="radio">
+                        <label for="nextDay" onclick="shippingPrice()">Next Day (1 day) $12.95</label>
+                    </div>
+                    <input class="productInput1" name="sub3" type="text">
+                    <label class="total" for="total">TOTAL: </label>
+                    <input id="total" name="total" class="productInput" type="text">
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Shipping Address</legend>
+                <div class="shippingAddress">
+                    <label class="coloredLabel" ="sname">Name: </label>
+                    <input id="sname" name="sname" type="text">
+                    <br>
+                    <label class="coloredLabel" ="sstreet">Street: </label>
+                    <input id="sstreet" name="sstreet" ="text">
+                    <br>
+                    <label class="coloredLabel" ="scity">City: </label>
+                    <input id="scity" name="sstreet" type="text">
+                    <label class="statezip" for="sstate">State: </label>
+                    <select id="sstate" name="sstate">
+                        <option value="AL">AL</option>
+                        <option value="CA">CA</option>
+                    </select>
+                    <label class="statezip" for="szip">Zip: </label>
+                    <input id="szip" name="szip" type="text">
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Billing Address</legend>
+                <div class="billingAddress">
+                    <input id="billcb" name="billcb" type="checkbox">
+                    <label for="billcb">Same as Shipping Address</label>
+                    <input id="creditcb" name="creditcb" type="checkbox">
+                    <label for="creditcb">Bill me now with my credit card.</label>
+                    <div class="shippingAddress">
+                        <label class="coloredLabel" ="sname">Name: </label>
+                        <input id="sname" name="sname" type="text">
+                        <br>
+                        <label class="coloredLabel ="sstreet">Street: </label>
+                        <input id="sstreet" name="sstreet" ="text">
+                        <br>
+                        <label class="coloredLabel" ="scity">City: </label>
+                        <input id="scity" name="sstreet" type="text">
+                        <label class="statezip" for="sstate">State: </label>
+                        <select id="sstate" name="sstate">
+                            <option value="AL">AL</option>
+                            <option value="CA">CA</option>
+                        </select>
+                        <label class="statezip" for="szip">Zip: </label>
+                        <input id="szip" name="szip" type="text">
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Credit Card Information</legend>
+                <div class="creditCardInfo">
+                    <label class="namecard" for="cname">Name: </label>
+                    <input id="cname" name="cname" type="text">
+                    <br>
+                    <label class="namecard" for="ccard">Card: </label>
+                    <table>
+                        <tr>
+                            <td>
+                                <input id="american" name="ccard" type="radio">
+                                <label for="american">American Express</label>
+                            </td>
+                            <td>
+                                <input id="dinersclub" name="ccard" type="radio">
+                                <label for="dinersclub">Diner's Club</label>
+                            </td>
+                            <td>
+                                <input id="mastercard" name="ccard" type="radio">
+                                <label for="mastercard">MasterCard</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input id="citibank" name="ccard" type="radio">
+                                <label for="citibank">CitiBank</label>
+                            </td>
+                            <td>
+                                <input id="discover" name="ccard" type="radio">
+                                <label for="discover">Discover</label>
+                            </td>
+                            <td>
+                                <input id="visa" name="ccard" type="radio">
+                                <label for="visa">Visa</label>
+                            </td>
+                        </tr>
+                    </table>
+                <br>
+                    <label class="namecard" for="cnumber">Number: </label>
+                    <input id="cnumber" name="cnumber" type="text">
+                    <label class="statezip" for="expiration">Expiration: </label>
+                    <select>
+                        <option>01</option>
+                        <option>02</option>
+                        <option>03</option>
+                        <option>04</option>
+                        <option>05</option>
+                    </select>
+                    <label class="statezip" for="expyear">/</label>
+                    <select>
+                        <option>2004</option>
+                        <option>2005</option>
+                        <option>2006</option>
+                        <option>2007</option>
+                        <option>2008</option>
+                    </select>
+                </div>
+            </fieldset>
+            <div class="submitButton">
+                <button type="submit" onclick="submitButton()">Submit Order</button>
+                <button type="submit" onclick="cancelButton()">Cancel Order</button>
+            </div>
+        </form>
+    </body>
+</html>
